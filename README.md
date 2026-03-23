@@ -28,7 +28,7 @@ This application helps users:
 Example API Call:
 
 ```
-https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&units=metric
+https://api.openweathermap.org/data/2.5/weather?q=London&appid=82842b5b39a17ed3d792c41bb049ff73&units=metric
 ```
 
 ---
