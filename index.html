@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="side-Portion">
+            <div class="top">
+                <div class="logo">
+                    <img src="./assets/logo.png" alt="">
+                    <h1>WeatherAajKal</h1>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="map.html">
+                    <span class="material-symbols-outlined">map</span>
+                    <h3>Map View</h3>
+                </a>
+                <a href="#">
+                    <span class="material-symbols-outlined">release_alert</span>
+                    <h3>Alerts</h3>
+                </a>
+            </div>
+            <div class="theme">
+                <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+                </label>
+            </div>
+        </aside>
+        <main class="main">
+            <h1 id="cityname"></h1>
+            <div class="inputs">
+                <input type="text" placeholder="Search City or Zip Code..." id="search" value="Pune">
+                <button class="searchbtn" id="searchbtn"><span class="material-symbols-outlined">search</span></button>
+            </div>
+            <div class="hero">
+                <div class="display">
+                    <div class="images"></div>
+                    <p id="clouddetail"></p>
+                    <h2 id="temp"></h2>
+                    <div class="moredetail">
+                        <p id="humidity"></p>
+                        <p id="wind"></p>
+                        <p id="feelslike"></p>
+                    </div>
+
+                </div>
+                <div class="subhero">
+                    <div class="wear"></div>
+                    <div class="precipitation"></div>
+                </div>
+            </div>
+            <h3>5-Day Forecast</h3>
+        </main>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>

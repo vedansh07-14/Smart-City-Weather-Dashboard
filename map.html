@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <title>mapview</title>
+</head>
+<body>
+    <div class="container">
+        <aside class="side-Portion">
+                <div class="top">
+                    <div class="logo">
+                        <img src="./assets/logo.png" alt="">
+                        <h1>WeatherAajKal</h1>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <a href="index.html">
+                        <span class="material-icons-sharp">grid_view</span>
+                        <h3>Dashboard</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-outlined">map</span>
+                        <h3>Map View</h3>
+                    </a>
+                    <a href="#">
+                        <span class="material-symbols-outlined">release_alert</span>
+                        <h3>Alerts</h3>
+                    </a>
+                </div>
+                <div class="theme">
+                    <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                    </label>
+                </div>
+            </aside>
+            <main style="padding: 20px;" class="main">
+                <h1 style="font-family:DM Serif Display, serif; font-size: 40px; color: #1B5FA8;">Map</h1>
+                <iframe  width="100%" height="100%" allow="geolocation" src="https://api.maptiler.com/maps/base-v4/?key=gYnPgyKk9dS8wp65zdMG#1.0/0.00000/0.00000"></iframe>
+            </main>
+        </div>
+    
+</body>
+</html>
