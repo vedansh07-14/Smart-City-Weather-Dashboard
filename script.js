@@ -8,6 +8,17 @@ const wind = document.getElementById('wind');
 const feelslike = document.getElementById('feelslike');
 
 const toggle = document.querySelector('.switch input');
+const loadMoreBtn = document.getElementById("loadMore");
+const cities = [
+    "Mumbai", "Singapore", "Dubai", "Paris",
+    "London", "New York", "Tokyo", "Sydney"
+];
+let cityWeatherData = [];
+let index = 0;
+
+const sortLowBtn = document.getElementById("sortLow");
+const sortHighBtn = document.getElementById("sortHigh");
+
 
 function getWeather(input) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=82842b5b39a17ed3d792c41bb049ff73&units=metric`)
@@ -102,7 +113,8 @@ function getWeatherIcon(weather) {
 
 document.addEventListener("DOMContentLoaded", () => {
     getWeather("Pune");
-    getForecast("Pune"); // default city
+    getForecast("Pune");
+    loadCities();   // default city
 });
 
 
@@ -159,10 +171,94 @@ function getWearSuggestion(temp, weather, wind) {
     };
 }
 
+async function loadCities() {
+    const container = document.getElementById("cityList");
+
+    if (index === 0) cityWeatherData = [];
+
+    for (let i = index; i < index + 2; i++) {
+        if (i >= cities.length) return;
+        const cityName = cities[i];
+
+        const res = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=82842b5b39a17ed3d792c41bb049ff73&units=metric`
+        );
+
+        const data = await res.json();
+
+        cityWeatherData.push({
+            name: data.name,
+            temp: Math.round(data.main.temp),
+            humidity: data.main.humidity,
+            weather: data.weather[0].main
+        });
+    }
+    renderCities(cityWeatherData);
+    index += 2;
+
+    if (index >= cities.length) {
+    document.getElementById("loadMore").style.display = "none";
+}
+}
+function renderCities(data) {
+    const container = document.getElementById("cityList");
+    container.innerHTML = "";
+
+    data.forEach(city => {
+        const card = `
+            <div class="city-card">
+                <div>
+                    <h3>${city.name}</h3>
+                    <p>${city.weather}</p>
+                </div>
+
+                <div>
+                    <p>Humidity ${city.humidity}%</p>
+                    <h2>${city.temp}°C</h2>
+                </div>
+            </div>
+        `;
+
+        container.innerHTML += card;
+    });
+}
 
 
 
+sortLowBtn.addEventListener("click", () => {
+    sortLowBtn.classList.add("active");
+    sortHighBtn.classList.remove("active");
 
+    const sorted = [...cityWeatherData].sort((a, b) => a.temp - b.temp);
+    renderCities(sorted);
+});
+
+sortHighBtn.addEventListener("click", () => {
+    sortHighBtn.classList.add("active");
+    sortLowBtn.classList.remove("active");
+
+    const sorted = [...cityWeatherData].sort((a, b) => b.temp - a.temp);
+    renderCities(sorted);
+});
+
+
+const slider = document.getElementById("tempRange");
+
+slider.addEventListener("input", () => {
+    const value = slider.value;
+
+    document.getElementById("minTemp").innerText = value + "°C";
+
+    const filtered = cityWeatherData.filter(city => city.temp >= value);
+    renderCities(filtered);
+});
+
+
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => {
+        loadCities();
+    });
+}
 
 
 

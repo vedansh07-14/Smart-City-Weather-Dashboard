@@ -46,7 +46,9 @@ body {
     100% { background-position: 0% 50%; }
 }
 .container{
-    display: flex;
+    /* display: block; */
+    display: grid;
+    grid-column: 1/3;
 
 }
 
@@ -87,12 +89,17 @@ a{
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 .side-Portion{
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 95vh;
-    width: 22vw;
-    background: var(--white);
-    color: var(--text-dark);
+    width: 260px;   /* 🔥 use fixed px instead of vw */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     padding: 20px;
-    position: relative;
 }
 .sidebar a:first-child {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -123,6 +130,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 .switch {
   position: relative;
@@ -171,7 +179,11 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 82vw;
+    margin-left: 320px;
+    width: calc(100% - 260px);
+    /* margin-left: 10px; */
+    width: 73vw;
+    padding: 40px;
     padding-top: 50px;
     padding-left: 35px;
     padding-right: 35px;
@@ -404,4 +416,143 @@ a{
     background: rgba(30, 41, 59, 0.6);
 }
 
+.global {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 20px;
 
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.global-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.city-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px;
+    margin-top: 12px;
+
+    border-radius: 18px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid var(--border);
+
+    transition: 0.3s;
+}
+
+.city-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.city-card p {
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.city-card:hover {
+    transform: translateY(-3px);
+}
+
+#loadMore {
+    margin: 20px auto 0;
+    display: block;
+    width: 60%;
+
+    padding: 14px;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #4facfe, #00c6ff);
+    color: white;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: rgba(255,255,255,0.3);
+    padding: 10px 15px;
+    border-radius: 30px;
+
+    backdrop-filter: blur(10px);
+}
+
+/* Label */
+.controls span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+/* Slider */
+#tempRange {
+    -webkit-appearance: none;
+    width: 160px;
+    height: 6px;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Slider Thumb */
+#tempRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(79,172,254,0.7);
+}
+
+/* Sort Buttons */
+.sort-btn {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+}
+
+/* Active Button */
+.sort-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+/* Hover */
+.sort-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.dark #tempRange {
+    background: rgba(255,255,255,0.2);
+}
+
+.dark .sort-btn {
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
