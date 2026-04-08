@@ -93,7 +93,7 @@ a{
     top: 0;
     left: 0;
     height: 95vh;
-    width: 260px;   /* 🔥 use fixed px instead of vw */
+    width: 260px;  
 
     display: flex;
     flex-direction: column;
@@ -492,14 +492,14 @@ a{
     backdrop-filter: blur(10px);
 }
 
-/* Label */
+
 .controls span {
     font-size: 14px;
     font-weight: 500;
     color: var(--text-light);
 }
 
-/* Slider */
+
 #tempRange {
     -webkit-appearance: none;
     width: 160px;
@@ -510,7 +510,7 @@ a{
     transition: 0.3s;
 }
 
-/* Slider Thumb */
+
 #tempRange::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 18px;
@@ -521,7 +521,7 @@ a{
     box-shadow: 0 0 10px rgba(79,172,254,0.7);
 }
 
-/* Sort Buttons */
+
 .sort-btn {
     padding: 8px 14px;
     border-radius: 20px;
@@ -536,7 +536,7 @@ a{
     transition: 0.3s;
 }
 
-/* Active Button */
+
 .sort-btn.active {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
