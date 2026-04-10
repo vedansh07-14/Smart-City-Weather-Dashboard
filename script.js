@@ -58,6 +58,21 @@ function getWeather(input) {
                 );
             document.getElementById("wearTitle").innerText = wear.title;
             document.getElementById("wearDesc").innerText = wear.desc;
+
+
+            document.getElementById("rainChance").innerText =
+                data.clouds.all > 60 ? 70 : data.clouds.all > 30 ? 40 : 10;
+
+            document.getElementById("windStatus").innerText =
+                data.wind.speed > 5 ? "Windy" : "Calm";
+
+            document.getElementById("humidStatus").innerText =
+                data.main.humidity > 70 ? "High" :
+                data.main.humidity > 40 ? "Moderate" : "Low";
+
+            document.getElementById("comfort").innerText =
+                data.main.temp > 32 ? "Hot 🥵" :
+                data.main.temp > 20 ? "Pleasant 😌" : "Cold 🥶";
         })
         .catch(() => {
             city.innerText = "City not found ❌";
@@ -259,6 +274,7 @@ if (loadMoreBtn) {
         loadCities();
     });
 }
+
 
 
 

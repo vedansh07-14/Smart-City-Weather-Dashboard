@@ -84,9 +84,10 @@ a{
     color: var(--text-dark);
 }
 .sidebar a:hover{
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateX(6px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    transform: translateX(6px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 .side-Portion{
     position: fixed;
@@ -101,7 +102,7 @@ a{
 
     padding: 20px;
 }
-.sidebar a:first-child {
+.sidebar a.active {
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
 }
@@ -251,15 +252,33 @@ input:checked + .slider:before {
 
 }
 .precipitation{
-    width: 25vw;
-    height: 145px;
-    background-color: #1B5FA8;
+    width: 27.5vw;
+    height: 150px; 
     border-radius: 20px;
+    overflow: hidden;
 
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: #1e3c72;
+    position: relative;
     color: white;
     transition: 0.3s;
 
+}
+
+.highlight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 20px;
+    color: white;
+    font-weight: 500;
+}
+
+.item {
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
 }
 
 .wear:hover, .precipitation:hover{
